@@ -1,5 +1,5 @@
 {
-  "name": "alhambra-desktop",
+  "name": "rad.wtf",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -33,6 +33,7 @@
     "babelify": "^7.3.0",
     "browserify": "^13.1.1",
     "budo": "^9.2.2",
+    "ejs-cli": "^2.0.0",
     "envify": "^4.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -48,9 +49,9 @@
   },
   "scripts": {
     "start": "concurrently \"npm run start:css\" \"npm run start:js\"",
-    "start:js": "budo src/index.js:bundle.js --live --dir . --host 0.0.0.0 -- -t babelify --presets [ es2015 stage-0 stage-1 ] -t [ envify --NODE_ENV development ]",
+    "start:js": "NODE_ENV=development ejs-cli src/index.ejs > index.html && budo src/index.js:bundle.js --live --dir . --host 0.0.0.0 -- -t babelify --presets [ es2015 stage-0 stage-1 ] -t [ envify --NODE_ENV development ]",
     "start:css": "gulp watch",
-    "build": "browserify src/index.js -t [ envify --NODE_ENV production ] -t babelify --presets [ es2015 stage-0 stage-1 ] | uglifyjs > bundle.js && gulp sass --production"
+    "build": "NODE_ENV=production ejs-cli src/index.ejs > index.html && browserify src/index.js -t [ envify --NODE_ENV production ] -t babelify --presets [ es2015 stage-0 stage-1 ] | uglifyjs > bundle.js && gulp sass --production && chmod +x bin/copy-to-gcloud.sh && ./bin/copy-to-gcloud.sh"
   },
   "browserify": {
     "transform": [
@@ -69,10 +70,10 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git://github.com/samelie/alhambra-desktop.git"
+    "url": "git://github.com/adddog/rad.wtf.git"
   },
-  "homepage": "https://github.com/samelie/alhambra-desktop",
+  "homepage": "https://github.com/adddog/rad.wtf",
   "bugs": {
-    "url": "https://github.com/samelie/alhambra-desktop/issues"
+    "url": "https://github.com/adddog/rad.wtf/issues"
   }
 }

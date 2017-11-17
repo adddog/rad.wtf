@@ -24,12 +24,11 @@
 
   <title>rad.wtf</title>
   <!-- CSS -->
-  <link href=https://storage.googleapis.com/samrad-rad-wtf/www-assets/main.css  rel="stylesheet">
+  <link href=<%=process.env.NODE_ENV==="production" ? "https://storage.googleapis.com/samrad-rad-wtf/www-assets/main.css" : "main.css"%>  rel="stylesheet">
 
 </head>
 <body>
 </body>
 
-<script src=https://storage.googleapis.com/samrad-rad-wtf/www-assets/bundle.js></script>
+<script src=<%=process.env.NODE_ENV==="production" ? "https://storage.googleapis.com/samrad-rad-wtf/www-assets/bundle.js" : "bundle.js"%>></script>
 </html>
-
