@@ -13,13 +13,17 @@ module.exports = (state, emitter) => {
   state.sites = [{
     label: 'DeuxTube',
     selected: true,
-    url: 'https://samelie.github.io/rad.wtf-deuxtube/'
+    url: 'https://samelie.github.io/deuxtube-web/'
   },{
     label: 'Alhambra',
     selected: false,
     url: 'https://samelie.github.io/thealhambraproject.com/desktop-tour/'
   },{
     label: 'Mars',
+    selected: false,
+    url: 'https://samelie.github.io/mars.wtf/'
+  },{
+    label: 'amenothep',
     selected: false,
     url: 'https://samelie.github.io/mars-amenothep/'
   },{
